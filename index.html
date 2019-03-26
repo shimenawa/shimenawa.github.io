@@ -76,7 +76,11 @@
 <p>みたいな。</p>
 <hr>
 <p>しかし、既にユーザ情報がHexoに登録されていると、<em>_config.yml</em>を変更しdeployを行っても変更したユーザ情報が反映されない。。。</p>
-<p>ユーザ情報を変更するには<em>.deploy_git/.git/</em>を弄る必要がある。</p>
+<p>ユーザ情報を変更するには<em>.deploy_git/</em>を弄る必要がある。</p>
+<p>例えば</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~/blog$ cd .deploy_git</span><br><span class="line">~/blog/.deploy_git$ git config --local user.name &quot;screen.name&quot;</span><br><span class="line">~/blog/.deploy_git$ git config --local user.email &quot;mailmail@mail.com&quot;</span><br></pre></td></tr></table></figure>
+<p>過去のcommitを弄りたい場合は、<em>.deploy_git</em>内で<code>git commit --amend</code>したり<code>git rebase -i [hash]</code>したりすれば良い感じ。</p>
+<p>ちなみに<em>.deploy_git</em>を削除して<code>hexo deploy -g</code>すると当然commitログは全部消える。(リセット)</p>
 
     
 	</div>
